@@ -104,36 +104,44 @@ python -m venv .venv
 ```
 
 Linux / macOS
-
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
 ### Step 3: Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 ### Step 4: Train the model
+```bash
 python src/train.py
+```
 
 ### Step 5: Run the FastAPI service
+```bash
 uvicorn app.api:app --reload
+```
 
-
-API documentation:
-
-http://127.0.0.1:8000/docs
 
 ### Step 6: Run the Streamlit dashboard
+```bash
 streamlit run dashboard/streamlit_app.py
+```
 
 7. Run Using Docker (Recommended)
 
 Docker allows running the API without local Python setup.
-
+```bash
 docker build -t ai4i-api .
 docker run -p 8000:8000 ai4i-api
-
+```
 
 ### API will be available at:
 
-http://localhost:8000/docs
+**http://localhost:8000/docs**
+
+
+--- 
+Thanks
 
