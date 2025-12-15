@@ -44,6 +44,96 @@ Experiments are tracked using **MLflow**:
 - Evaluation metrics
 - Saved artifacts
 
-Run MLflow UI:
+
+---
+
+### Download
+Download the dataset from:
+https://archive.ics.uci.edu/ml/datasets/ai4i+2020+predictive+maintenance+dataset
+
+Place the CSV file in:
+data/ai4i2020.csv
+
+## 3. Machine Learning Approach
+- Data cleaning and preprocessing
+- One-hot encoding for categorical features
+- Feature scaling using `StandardScaler`
+- Model training with **Random Forest Classifier**
+- Evaluation using Precision, Recall, and F1-score
+- Experiment tracking using **MLflow**
+
+---
+
+## 4. Project Structure
+ai4i-predictive-maintenance/
+├── app/ # FastAPI service
+├── src/ # Training and preprocessing code
+├── dashboard/ # Streamlit dashboard
+├── data/ # Dataset (not committed)
+├── models/ # Saved model artifacts
+├── requirements.txt
+├── Dockerfile
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## 5. Requirements
+- Python 3.10 or higher
+- Git
+- (Optional) Docker
+
+---
+
+## 6. How to Run Locally
+
+### Step 1: Clone the repository
 ```bash
-mlflow ui
+git clone https://github.com/<your-username>/ai4i-predictive-maintenance.git
+cd ai4i-predictive-maintenance
+```
+
+### Step 2: Create and activate virtual environment
+
+Windows
+
+python -m venv .venv
+.venv\Scripts\activate
+
+
+Linux / macOS
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+### Step 3: Install dependencies
+pip install -r requirements.txt
+
+### Step 4: Train the model
+python src/train.py
+
+### Step 5: Run the FastAPI service
+uvicorn app.api:app --reload
+
+
+API documentation:
+
+http://127.0.0.1:8000/docs
+
+### Step 6: Run the Streamlit dashboard
+streamlit run dashboard/streamlit_app.py
+
+7. Run Using Docker (Recommended)
+
+Docker allows running the API without local Python setup.
+
+docker build -t ai4i-api .
+docker run -p 8000:8000 ai4i-api
+
+
+### API will be available at:
+
+http://localhost:8000/docs
+
