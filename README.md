@@ -98,10 +98,10 @@ cd ai4i-predictive-maintenance
 ### Step 2: Create and activate virtual environment
 
 Windows
-
+```bash
 python -m venv .venv
 .venv\Scripts\activate
-
+```
 
 Linux / macOS
 
